@@ -524,13 +524,23 @@ a {
   z-index: 0;
 }
 
+/* Vimeo portrait uploads often letterbox inside a 16×9 iframe; slight zoom crops side bars while stage stays 9:16 */
 .ig-card__embed-stage .ig-card__iframe {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  top: 50%;
   width: 100%;
   height: 100%;
   border: 0;
   background: #000;
+  transform: translate(-50%, -50%) scale(1.12);
+  transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-card__embed-stage .ig-card__iframe {
+    transform: translate(-50%, -50%);
+  }
 }
 
 .ig-card__placeholder {

@@ -7,9 +7,8 @@ function whenDocumentReady(fn) {
 }
 
 /**
- * Parses links and wires cards lazily — only the centered carousel slide gets a Vimeo
- * iframe src (muted autoplay). Others stay unloaded so nothing plays in parallel.
- * @returns {(activeSlideIndex: number) => void}
+ * Wires Vimeo iframes for every reel. All embeds load paused (autoplay off).
+ * Muted=1 lets visitors use Vimeo’s Unmute safely after they press play on a clip.
  */
 function initVimeoEmbeds() {
   const cards = [...document.querySelectorAll(".ig-card")];
@@ -61,61 +60,48 @@ function initVimeoEmbeds() {
     const q = new URLSearchParams();
     if (p.h) q.set("h", p.h);
     q.set("muted", "1");
-    q.set("autoplay", "1");
+    q.set("autoplay", "0");
     q.set("loop", "1");
     q.set("title", "0");
     q.set("byline", "0");
+    /* Player chrome: hides author portrait strip (not the video’s orientation). */
     q.set("portrait", "0");
     q.set("badge", "0");
     q.set("dnt", "1");
     q.set("controls", "1");
     q.set("playsinline", "1");
-    q.set("autopause", "0");
+    q.set("autopause", "1");
     q.set("transparent", "1");
 
     const query = q.toString();
     return `https://player.vimeo.com/video/${p.id}${query ? `?${query}` : ""}`;
   }
 
-  function applyVimeoForActiveSlide(activeSlideIndex) {
-    cards.forEach((card, i) => {
-      const iframe = card.querySelector(".ig-card__iframe");
-      const fallback = card.querySelector(".ig-card__placeholder");
-      const media = card.querySelector(".ig-card__media--vimeo");
-      const raw =
-        typeof links[i] === "string" ? links[i] : links[String(i)];
-      const trimmed = typeof raw === "string" ? raw.trim() : "";
-      const embedUrl = trimmed ? buildEmbedSrc(trimmed) : null;
+  cards.forEach((card, i) => {
+    const iframe = card.querySelector(".ig-card__iframe");
+    const fallback = card.querySelector(".ig-card__placeholder");
+    const media = card.querySelector(".ig-card__media--vimeo");
+    const raw =
+      typeof links[i] === "string" ? links[i] : links[String(i)];
+    const trimmed = typeof raw === "string" ? raw.trim() : "";
+    const embedUrl = trimmed ? buildEmbedSrc(trimmed) : null;
 
-      if (!embedUrl || !iframe) {
-        media?.classList.remove("ig-card__media--vimeo--has-video");
-        iframe?.removeAttribute("src");
-        if (iframe) iframe.hidden = true;
-        if (fallback) fallback.hidden = false;
-        return;
-      }
+    if (!embedUrl || !iframe) {
+      media?.classList.remove("ig-card__media--vimeo--has-video");
+      iframe?.removeAttribute("src");
+      if (iframe) iframe.hidden = true;
+      if (fallback) fallback.hidden = false;
+      return;
+    }
 
-      if (fallback) fallback.hidden = true;
-
-      if (i === activeSlideIndex) {
-        iframe.src = embedUrl;
-        iframe.removeAttribute("hidden");
-        media?.classList.add("ig-card__media--vimeo--has-video");
-      } else {
-        iframe.removeAttribute("src");
-        iframe.hidden = true;
-        media?.classList.remove("ig-card__media--vimeo--has-video");
-      }
-    });
-  }
-
-  return applyVimeoForActiveSlide;
+    iframe.src = embedUrl;
+    iframe.removeAttribute("hidden");
+    if (fallback) fallback.hidden = true;
+    media?.classList.add("ig-card__media--vimeo--has-video");
+  });
 }
 
-/**
- * @param {(activeSlideIndex: number) => void} [onActiveSlideChange]
- */
-function initFeedCarousel(onActiveSlideChange) {
+function initFeedCarousel() {
   const vp = document.querySelector(".feed-carousel__viewport");
   const slides = [...document.querySelectorAll(".feed-carousel__slide")];
   const dotsHost = document.getElementById("carousel-dots");
@@ -128,7 +114,6 @@ function initFeedCarousel(onActiveSlideChange) {
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let scrollScheduled = false;
-  let lastReportedSlide = -1;
 
   slides.forEach((slide, index) => {
     const dot = document.createElement("button");
@@ -174,10 +159,6 @@ function initFeedCarousel(onActiveSlideChange) {
 
   function syncChrome() {
     const i = activeIndexFromScroll();
-    if (onActiveSlideChange && i !== lastReportedSlide) {
-      lastReportedSlide = i;
-      onActiveSlideChange(i);
-    }
     slides.forEach((slide, idx) => {
       slide.classList.toggle("feed-carousel__slide--active", idx === i);
     });
@@ -243,6 +224,6 @@ function initFeedCarousel(onActiveSlideChange) {
 }
 
 whenDocumentReady(() => {
-  const applyVimeoForActiveSlide = initVimeoEmbeds();
-  initFeedCarousel(applyVimeoForActiveSlide);
+  initVimeoEmbeds();
+  initFeedCarousel();
 });
