@@ -468,6 +468,115 @@ a {
   color: #a8a8a8;
 }
 
+.ig-post-head--collab {
+  gap: 0.65rem;
+}
+
+.ig-post-head__avatar-stack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ig-post-head__avatar-stack > .ig-post-head__avatar:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.ig-post-head__avatar--partner {
+  margin-inline-start: -0.72rem;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text);
+  background: linear-gradient(145deg, #292929 0%, #171717 100%);
+}
+
+.ig-post-head__avatar--partner span {
+  line-height: 1;
+}
+
+.ig-post-head__user--collab {
+  line-height: 1.35;
+}
+
+.ig-caption-mention,
+.ig-caption-hashtag {
+  color: #a7c8ff;
+  font-weight: 500;
+}
+
+.ig-caption-hashtag {
+  margin-inline-end: 0.28rem;
+}
+
+.ig-card__caption--tight {
+  margin-top: 0.12rem;
+  margin-bottom: 0.32rem;
+}
+
+.ig-card__caption--hashtags {
+  margin-top: 0;
+  margin-bottom: 0.32rem;
+  line-height: 1.55;
+}
+
+.ig-card__caption--byline {
+  margin-top: 0.2rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.8525rem;
+  color: rgba(245, 245, 245, 0.9);
+}
+
+.ig-card__edited {
+  display: inline-block;
+  margin-top: 0.32rem;
+  font-size: 0.7375rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.ig-card__comments-peek {
+  margin-top: 0.1rem;
+  margin-bottom: 0.45rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.ig-card__comment-line {
+  margin: 0 0 0.42rem;
+  font-size: 0.8225rem;
+  line-height: 1.45;
+  color: rgba(245, 245, 245, 0.92);
+}
+
+.ig-card__comment-line:last-child {
+  margin-bottom: 0;
+}
+
+.ig-card__comment-user {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ig-card__comment-meta {
+  margin-inline-start: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.ig-card__posted-date {
+  margin: 0.25rem 0 0;
+  font-size: 0.7375rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .ig-card__more {
   width: 36px;
   height: 28px;
