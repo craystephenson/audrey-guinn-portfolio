@@ -1,8 +1,13 @@
 /**
- * Paste Vimeo links in column order (top card → bottom). Any of these forms work:
- *   https://vimeo.com/123456789
- *   https://vimeo.com/123456789/abcPrivacyHash
- *   https://player.vimeo.com/video/123456789?h=...
- * Use "" (empty string) if a slot should show "Coming soon" until you add a link.
+ * Vimeo URLs for each reel card (top → bottom).
+ * Matches the five posts on index.html. Query strings (?share=…) are fine.
+ *
+ * Alternate for slot 1 (same reel, different upload): https://vimeo.com/1188936183
  */
-window.PORTFOLIO_VIMEO = ["", "", "", "", ""];
+window.PORTFOLIO_VIMEO = [
+  "https://vimeo.com/1188936026", // reel 5215 · skincare hero
+  "https://vimeo.com/1188935992", // ED70E982
+  "https://vimeo.com/1188936095", // E70530EF
+  "https://vimeo.com/1188936123", // 3C847BFE
+  "https://vimeo.com/1188936144", // B38CF4E1
+];
