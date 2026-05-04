@@ -97,6 +97,11 @@ a {
 
 .brand__mark {
   display: block;
+  flex-shrink: 0;
+  width: 44px;
+  height: auto;
+  aspect-ratio: 762 / 520;
+  object-fit: contain;
   border-radius: 12px;
   border: 1px solid var(--border-soft);
 }
