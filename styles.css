@@ -346,9 +346,22 @@ a {
   max-width: var(--carousel-slide);
   scroll-snap-align: center;
   scroll-snap-stop: always;
+  transition: opacity 0.28s ease;
+}
+
+.feed-carousel__slide--active {
+  opacity: 1;
+}
+
+.feed-carousel--hydrated .feed-carousel__slide:not(.feed-carousel__slide--active) {
+  opacity: 0.86;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .feed-carousel__slide {
+    transition: none;
+  }
+
   .feed-carousel__viewport {
     scroll-behavior: auto;
   }
