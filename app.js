@@ -1,4 +1,12 @@
-(function () {
+function whenDocumentReady(fn) {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fn, { once: true });
+  } else {
+    fn();
+  }
+}
+
+function initVimeoEmbeds() {
   const cards = [...document.querySelectorAll(".ig-card")];
   /** Same order as embeds-config.js — used when that file fails to load (e.g. some file:// setups). */
   const FALLBACK_VIMEO = [
@@ -82,9 +90,9 @@
   }
 
   cards.forEach((card, i) => wireCard(card, i));
-})();
+}
 
-(function initFeedCarousel() {
+function initFeedCarousel() {
   const vp = document.querySelector(".feed-carousel__viewport");
   const slides = [...document.querySelectorAll(".feed-carousel__slide")];
   const dotsHost = document.getElementById("carousel-dots");
@@ -198,4 +206,9 @@
     syncChrome();
     requestAnimationFrame(syncChrome);
   });
-})();
+}
+
+whenDocumentReady(() => {
+  initVimeoEmbeds();
+  initFeedCarousel();
+});
