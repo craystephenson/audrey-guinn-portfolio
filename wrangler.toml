@@ -1,4 +1,4 @@
-# Audrey Guinn — static Pages site (repo root holds index.html, assets/, social/).
+# Audrey Guinn — static Pages site (repo root holds index.html, embeds-config.js).
 # Deploy locally: wrangler login && wrangler pages deploy . --project-name=audrey-guinn-portfolio
 # See `.github/workflows/cloudflare-pages.yml` for CI deploy.
 
