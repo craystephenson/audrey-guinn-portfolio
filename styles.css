@@ -11,8 +11,8 @@
   --radius-sm: 10px;
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.45);
   --carousel-gap: clamp(0.75rem, 2vw, 1.25rem);
-  /* Fallback slide width; when container queries apply, reel uses ~full carousel minus padding */
-  --carousel-slide: clamp(280px, calc(100vw - 3rem), 920px);
+  /* Slide width ~= vertical reel shell + small gutters (neighbours peek at edges) */
+  --carousel-slide: clamp(296px, min(432px, calc(100vw - 2rem)), 432px);
 }
 
 *,
@@ -334,7 +334,7 @@ a {
   outline-offset: 3px;
 }
 
-  /* One reel per viewport: slide nearly full carousel width — neighbours only peek slightly */
+
 .feed-carousel__track {
   display: flex;
   flex-direction: row;
@@ -351,14 +351,17 @@ a {
   scroll-snap-align: center;
   scroll-snap-stop: always;
   transition: opacity 0.28s ease;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 @supports (width: min(1px, 1cqi)) {
   .feed-carousel__slide {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: clamp(280px, calc(100cqi - 48px), 920px);
-    max-width: clamp(280px, calc(100cqi - 48px), 920px);
+    flex-basis: clamp(296px, min(432px, calc(100cqi - 40px)), 432px);
+    max-width: clamp(296px, min(432px, calc(100cqi - 40px)), 432px);
   }
 }
 
@@ -380,8 +383,11 @@ a {
   }
 }
 
-/* Instagram-ish post shell */
+/* Narrow vertical reel column (IG phone-ish); avoids a wide banner with pillarboxed video */
 .ig-card {
+  box-sizing: border-box;
+  width: min(402px, 100%);
+  margin-inline: auto;
   background: var(--bg-card);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
@@ -485,11 +491,10 @@ a {
 .ig-card__media {
   position: relative;
   isolation: isolate;
-  aspect-ratio: 9 / 16;
+  box-sizing: border-box;
   width: 100%;
-  max-width: 100%;
-  /* Cap height vs viewport; fills card width whenever the cap allows ~portrait sizing */
-  max-height: min(72svh, 640px);
+  aspect-ratio: 9 / 16;
+  max-height: min(72svh, 620px);
   height: auto;
   margin-inline: auto;
   background: #000;
@@ -584,7 +589,7 @@ a {
 .ig-card__toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-shrink: 0;
   gap: 0.75rem;
   padding: 0.55rem 0.82rem 0.5rem;
@@ -593,11 +598,17 @@ a {
 }
 
 .ig-card__toolbar-left {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1.05rem;
+  gap: 1rem;
   flex-shrink: 0;
+  flex: 0 1 auto;
   min-width: 0;
+}
+
+.ig-card__toolbar > .ig-icon:last-child {
+  margin-inline-start: auto;
+  flex-shrink: 0;
 }
 
 .ig-icon-sprite {
@@ -632,6 +643,7 @@ a {
   height: 24px;
   max-width: 24px;
   max-height: 24px;
+  aspect-ratio: 1;
   overflow: visible;
 }
 
