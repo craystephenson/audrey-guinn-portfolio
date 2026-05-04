@@ -45,6 +45,7 @@
     q.set("controls", "1");
     q.set("playsinline", "1");
     q.set("autopause", "0");
+    q.set("transparent", "1");
 
     const query = q.toString();
     return `https://player.vimeo.com/video/${p.id}${query ? `?${query}` : ""}`;

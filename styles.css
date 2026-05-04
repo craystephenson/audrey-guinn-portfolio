@@ -232,15 +232,19 @@ a {
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 0.95rem;
+  padding: 0.7rem 0.82rem;
   border-bottom: 1px solid var(--border-soft);
+  background: var(--bg-card);
 }
 
 .ig-card__avatar {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  outline: solid 2px rgba(248, 250, 252, 0.18);
+  outline-offset: -1px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.85);
+  border: none;
   display: grid;
   place-items: center;
   font-size: 0.65rem;
@@ -251,11 +255,30 @@ a {
   background: linear-gradient(145deg, #2a2a2a, #111);
 }
 
+.ig-card__namecell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
 .ig-card__username {
   font-family: "Outfit", "Inter", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ig-verified {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  margin-top: 1px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%233b9eff'/%3E%3Cpath fill='%23fff' stroke='%233b9eff' stroke-width='0.35' stroke-linejoin='round' d='M16.65 9.05 11.08 14.72 8.58 11.93l.77-.93 2.01 2.43 6.52-7.27.77 1.92z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
 }
 
 .ig-card__time {
@@ -286,23 +309,53 @@ a {
 
 .ig-card__media {
   position: relative;
+  isolation: isolate;
   aspect-ratio: 4 / 5;
-  background: #080808;
+  background: #000;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
 }
 
-.ig-card__media--vimeo iframe.ig-card__iframe {
+/* Top / bottom fade like IG overlays in-feed (non-interactive — pointer events pass through). */
+.ig-card__media--vimeo::before {
+  content: "";
   position: absolute;
   inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 8, 0.38) 0%,
+    transparent 15%,
+    transparent 82%,
+    rgba(8, 8, 8, 0.5) 100%
+  );
+}
+
+.ig-card__embed-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ig-card__embed-stage .ig-card__iframe {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 100%;
   height: 100%;
   border: 0;
   background: #000;
+  transform: translate(-50%, -50%) scale(1.08);
 }
 
 .ig-card__placeholder {
   margin: 0;
   position: absolute;
   inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
   display: grid;
   place-items: center;
   text-align: center;
@@ -324,7 +377,7 @@ a {
 }
 
 .ig-card__reel-badge {
-  z-index: 1;
+  z-index: 4;
   position: absolute;
   top: 0.65rem;
   left: 0.65rem;
@@ -338,25 +391,27 @@ a {
   background: rgba(15, 15, 15, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
 .ig-card__toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0.95rem;
+  padding: 0.55rem 0.82rem 0.5rem;
   border-bottom: 1px solid var(--border-soft);
+  background: var(--bg-card);
 }
 
 .ig-card__toolbar-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.05rem;
 }
 
 .ig-icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -389,35 +444,32 @@ a {
 }
 
 .ig-card__lower {
-  padding: 0.85rem 0.95rem 1rem;
+  padding: 0.8rem 0.92rem 0.95rem;
+  background: var(--bg-card);
 }
 
 .ig-card__likes {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.35rem;
   font-weight: 600;
-  font-size: 0.83rem;
+  font-size: 0.815rem;
 }
 
 .ig-card__caption {
-  margin: 0;
-  font-size: 0.86rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.8625rem;
+  line-height: 1.5;
   color: rgba(245, 245, 245, 0.9);
+}
+
+.ig-card__comments-tease {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
 }
 
 .ig-card__caption strong {
   font-weight: 600;
-}
-
-.ig-card__muted-hint {
-  margin-top: 0.65rem;
-  padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-soft);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--muted);
-  font-size: 0.75rem;
-  cursor: pointer;
-  display: none;
 }
 
 .about-panel {
