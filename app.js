@@ -70,3 +70,119 @@
 
   cards.forEach((card, i) => wireCard(card, i));
 })();
+
+(function initFeedCarousel() {
+  const vp = document.querySelector(".feed-carousel__viewport");
+  const slides = [...document.querySelectorAll(".feed-carousel__slide")];
+  const dotsHost = document.getElementById("carousel-dots");
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+
+  if (!vp || slides.length === 0 || !dotsHost) return;
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let scrollScheduled = false;
+
+  slides.forEach((slide, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "feed-carousel__dot";
+    dot.dataset.slideIndex = String(index);
+    dot.setAttribute(
+      "aria-label",
+      `Go to reel ${index + 1} of ${slides.length}`,
+    );
+    dot.addEventListener("click", () => goToIndex(index));
+    dotsHost.appendChild(dot);
+  });
+
+  const dots = () => [...dotsHost.querySelectorAll(".feed-carousel__dot")];
+
+  function activeIndexFromScroll() {
+    const r = vp.getBoundingClientRect();
+    const cx = r.left + r.width * 0.5;
+    let best = 0;
+    let closest = Infinity;
+    slides.forEach((slide, i) => {
+      const b = slide.getBoundingClientRect();
+      const mx = (b.left + b.right) * 0.5;
+      const d = Math.abs(mx - cx);
+      if (d < closest) {
+        closest = d;
+        best = i;
+      }
+    });
+    return best;
+  }
+
+  function goToIndex(i) {
+    if (i < 0 || i >= slides.length) return;
+    const slide = slides[i];
+    slide.scrollIntoView({
+      behavior: reduced ? "auto" : "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }
+
+  function syncChrome() {
+    const i = activeIndexFromScroll();
+    dots().forEach((dot, idx) => {
+      const active = idx === i;
+      dot.classList.toggle("is-active", active);
+      dot.setAttribute("aria-current", active ? "true" : "false");
+    });
+    if (prevBtn) prevBtn.disabled = i === 0;
+    if (nextBtn) nextBtn.disabled = i === slides.length - 1;
+  }
+
+  function scheduleSync() {
+    if (scrollScheduled) return;
+    scrollScheduled = true;
+    requestAnimationFrame(() => {
+      syncChrome();
+      scrollScheduled = false;
+    });
+  }
+
+  vp.addEventListener(
+    "scroll",
+    () => {
+      scheduleSync();
+    },
+    { passive: true },
+  );
+
+  prevBtn?.addEventListener("click", () =>
+    goToIndex(activeIndexFromScroll() - 1),
+  );
+  nextBtn?.addEventListener("click", () =>
+    goToIndex(activeIndexFromScroll() + 1),
+  );
+
+  vp.addEventListener("keydown", (e) => {
+    if (e.target !== vp) return;
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      goToIndex(activeIndexFromScroll() - 1);
+    }
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      goToIndex(activeIndexFromScroll() + 1);
+    }
+    if (e.key === "Home") {
+      e.preventDefault();
+      goToIndex(0);
+    }
+    if (e.key === "End") {
+      e.preventDefault();
+      goToIndex(slides.length - 1);
+    }
+  });
+
+  window.addEventListener("resize", () => scheduleSync());
+  requestAnimationFrame(() => {
+    syncChrome();
+    requestAnimationFrame(syncChrome);
+  });
+})();

@@ -47,7 +47,7 @@
         <div class="hero__content">
           <h1 id="hero-heading">Social creative for brands people notice</h1>
           <p class="hero__lede">
-            Scroll the feed for recent reels and campaigns — filmed and managed
+            Scroll the carousel for recent reels — filmed and managed
             for partners who want polish and consistency across channels.
           </p>
           <div class="hero__chips">
@@ -62,14 +62,48 @@
         <div class="section-head">
           <h2 id="feed-heading">parnassussociety &amp; ocsa_cv</h2>
           <p class="section-head__hint">
-            Feed-style cards (IG look) with Vimeo behind the frame — add links in
+            Swipe, drag, or use arrows to stroll the reel carousel — Vimeo links live in
             <code>embeds-config.js</code>.
           </p>
         </div>
 
-        <div class="feed-grid">
-          <!-- Each card mirrors Instagram's post chrome (header, media, actions, caption). -->
-          <article class="ig-card" data-index="0">
+        <div class="feed-carousel">
+          <div class="feed-carousel__controls">
+            <button
+              type="button"
+              class="feed-carousel__btn feed-carousel__btn--prev"
+              id="carousel-prev"
+              aria-controls="social-carousel-scroll"
+              aria-label="Previous post"
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+            <div
+              class="feed-carousel__dots"
+              id="carousel-dots"
+              role="group"
+              aria-label="Slide indicators"
+            ></div>
+            <button
+              type="button"
+              class="feed-carousel__btn feed-carousel__btn--next"
+              id="carousel-next"
+              aria-controls="social-carousel-scroll"
+              aria-label="Next post"
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
+          <div
+            class="feed-carousel__viewport"
+            id="social-carousel-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Swipe or scroll sideways to browse reels."
+          >
+            <div class="feed-carousel__track">
+              <div class="feed-carousel__slide">
+                <article class="ig-card" data-index="0">
             <header class="ig-card__top">
               <div class="ig-collab">
                 <div class="ig-collab__avatars" aria-hidden="true">
@@ -124,8 +158,9 @@
               <p class="ig-card__comments-tease">View all 18 comments</p>
             </div>
           </article>
-
-          <article class="ig-card" data-index="1">
+          </div>
+          <div class="feed-carousel__slide">
+            <article class="ig-card" data-index="1">
             <header class="ig-card__top">
               <div class="ig-collab">
                 <div class="ig-collab__avatars" aria-hidden="true">
@@ -180,8 +215,9 @@
               <p class="ig-card__comments-tease">View all 9 comments</p>
             </div>
           </article>
-
-          <article class="ig-card" data-index="2">
+          </div>
+          <div class="feed-carousel__slide">
+            <article class="ig-card" data-index="2">
             <header class="ig-card__top">
               <div class="ig-collab">
                 <div class="ig-collab__avatars" aria-hidden="true">
@@ -236,8 +272,9 @@
               <p class="ig-card__comments-tease">View all 24 comments</p>
             </div>
           </article>
-
-          <article class="ig-card" data-index="3">
+          </div>
+          <div class="feed-carousel__slide">
+            <article class="ig-card" data-index="3">
             <header class="ig-card__top">
               <div class="ig-collab">
                 <div class="ig-collab__avatars" aria-hidden="true">
@@ -292,8 +329,9 @@
               <p class="ig-card__comments-tease">View all 6 comments</p>
             </div>
           </article>
-
-          <article class="ig-card" data-index="4">
+          </div>
+          <div class="feed-carousel__slide">
+            <article class="ig-card" data-index="4">
             <header class="ig-card__top">
               <div class="ig-collab">
                 <div class="ig-collab__avatars" aria-hidden="true">
@@ -348,7 +386,11 @@
               <p class="ig-card__comments-tease">View all 13 comments</p>
             </div>
           </article>
+            </div>
+            </div>
+          </div>
         </div>
+
       </section>
 
       <section id="about" class="about-panel" aria-labelledby="about-heading">
