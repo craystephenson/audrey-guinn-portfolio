@@ -10,8 +10,9 @@
   --radius-lg: 16px;
   --radius-sm: 10px;
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.45);
-  --carousel-gap: clamp(1rem, 3vw, 1.75rem);
-  --carousel-slide: min(480px, calc(100vw - 2.85rem));
+  --carousel-gap: clamp(0.75rem, 2vw, 1.25rem);
+  /* Card width caps so two slides aren’t gigantic; height also capped via .ig-card__media */
+  --carousel-slide: min(320px, calc(100vw - 2.5rem));
 }
 
 *,
@@ -355,8 +356,9 @@ a {
   .feed-carousel__slide {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: min(500px, 90cqi);
-    max-width: min(500px, 90cqi);
+    /* ~one primary card visible; neighbours peek (~72% of carousel width max 320px) */
+    flex-basis: min(320px, 72cqi, calc(100vw - 2.5rem));
+    max-width: min(320px, 72cqi, calc(100vw - 2.5rem));
   }
 }
 
@@ -483,8 +485,12 @@ a {
 .ig-card__media {
   position: relative;
   isolation: isolate;
-  /* Match vertical reel / Vimeo portrait (avoid 4:5 + scale hacks that pillarbox oddly). */
+  /* Portrait reel; bounded by viewport so the whole card fits without huge scroll */
   aspect-ratio: 9 / 16;
+  width: min(100%, calc(min(48svh, 380px) * 9 / 16));
+  max-height: min(48svh, 380px);
+  height: auto;
+  margin-inline: auto;
   background: #000;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
 }
