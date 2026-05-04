@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Audrey Guinn — brand social media strategy, content management, and creative direction."
+    />
+    <title>Audrey Guinn — Social Content</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="ag_logo.png" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to feed</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="#">
+          <img
+            src="ag_logo.png"
+            alt="Audrey Guinn initials mark"
+            width="44"
+            height="44"
+            class="brand__mark"
+          />
+          <div class="brand__text">
+            <span class="brand__name">Audrey Guinn</span>
+            <span class="brand__role">Brand social • content • campaigns</span>
+          </div>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#feed">Feed</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero__content">
+          <h1 id="hero-heading">Social creative for brands people notice</h1>
+          <p class="hero__lede">
+            Scroll the feed for recent reels and campaigns — filmed and managed
+            for partners who want polish and consistency across channels.
+          </p>
+          <div class="hero__chips">
+            <span class="chip">Instagram &amp; TikTok</span>
+            <span class="chip">Paid + organic</span>
+            <span class="chip">Editorial rollout</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="feed" class="feed-section" aria-labelledby="feed-heading">
+        <div class="section-head">
+          <h2 id="feed-heading">@audreyguinn</h2>
+          <p class="section-head__hint">
+            Videos play as you scroll. Use the sound control or tap for audio.
+          </p>
+        </div>
+
+        <div class="feed-grid">
+          <!-- Each card mirrors Instagram's post chrome (header, media, actions, caption). -->
+          <article class="ig-card" data-index="0">
+            <header class="ig-card__top">
+              <div class="ig-card__avatar" aria-hidden="true">ag</div>
+              <span class="ig-card__username">audreyguinn</span>
+              <span class="ig-card__time">Sponsored</span>
+              <button type="button" class="ig-card__more" aria-label="More options">
+                <span aria-hidden="true">⋯</span>
+              </button>
+            </header>
+            <div class="ig-card__media">
+              <video
+                src="social/copy_5215DA57-6942-4AC0-B835-B9904A2A4F7A.mp4"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
+              <button
+                type="button"
+                class="ig-card__sound"
+                aria-pressed="false"
+                aria-label="Muted — tap for sound"
+              >
+                <span aria-hidden="true">🔇</span>
+              </button>
+            </div>
+            <div class="ig-card__toolbar">
+              <div class="ig-card__toolbar-left">
+                <span class="ig-icon ig-icon--heart" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--comment" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--share" aria-hidden="true"></span>
+              </div>
+              <span class="ig-icon ig-icon--save" aria-hidden="true"></span>
+            </div>
+            <div class="ig-card__lower">
+              <p class="ig-card__likes">Liked by collaborators and creators</p>
+              <p class="ig-card__caption">
+                <strong>audreyguinn</strong> Launch week energy for a skincare
+                partner — hook, pacing, CTA nailed in-feed.
+              </p>
+              <button type="button" class="ig-card__muted-hint">
+                Tap for sound 🔈
+              </button>
+            </div>
+          </article>
+
+          <article class="ig-card" data-index="1">
+            <header class="ig-card__top">
+              <div class="ig-card__avatar" aria-hidden="true">ag</div>
+              <span class="ig-card__username">audreyguinn</span>
+              <span class="ig-card__time">2d</span>
+              <button type="button" class="ig-card__more" aria-label="More options">
+                <span aria-hidden="true">⋯</span>
+              </button>
+            </header>
+            <div class="ig-card__media">
+              <video
+                src="social/copy_ED70E982-18CE-41AC-A8E0-D1904C999834.MOV"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
+              <button
+                type="button"
+                class="ig-card__sound"
+                aria-pressed="false"
+                aria-label="Muted — tap for sound"
+              >
+                <span aria-hidden="true">🔇</span>
+              </button>
+            </div>
+            <div class="ig-card__toolbar">
+              <div class="ig-card__toolbar-left">
+                <span class="ig-icon ig-icon--heart" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--comment" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--share" aria-hidden="true"></span>
+              </div>
+              <span class="ig-icon ig-icon--save" aria-hidden="true"></span>
+            </div>
+            <div class="ig-card__lower">
+              <p class="ig-card__likes">Liked by creators you follow</p>
+              <p class="ig-card__caption">
+                <strong>audreyguinn</strong> Product-forward cut with captions
+                built for thumbs-stopping clarity.
+              </p>
+              <button type="button" class="ig-card__muted-hint">
+                Tap for sound 🔈
+              </button>
+            </div>
+          </article>
+
+          <article class="ig-card" data-index="2">
+            <header class="ig-card__top">
+              <div class="ig-card__avatar" aria-hidden="true">ag</div>
+              <span class="ig-card__username">audreyguinn</span>
+              <span class="ig-card__time">3d</span>
+              <button type="button" class="ig-card__more" aria-label="More options">
+                <span aria-hidden="true">⋯</span>
+              </button>
+            </header>
+            <div class="ig-card__media">
+              <video
+                src="social/copy_E70530EF-3463-4E0E-A7A4-7F89B4132496.MOV"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
+              <button
+                type="button"
+                class="ig-card__sound"
+                aria-pressed="false"
+                aria-label="Muted — tap for sound"
+              >
+                <span aria-hidden="true">🔇</span>
+              </button>
+            </div>
+            <div class="ig-card__toolbar">
+              <div class="ig-card__toolbar-left">
+                <span class="ig-icon ig-icon--heart" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--comment" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--share" aria-hidden="true"></span>
+              </div>
+              <span class="ig-icon ig-icon--save" aria-hidden="true"></span>
+            </div>
+            <div class="ig-card__lower">
+              <p class="ig-card__likes">Trusted by indie + national brands</p>
+              <p class="ig-card__caption">
+                <strong>audreyguinn</strong> Rhythm edit for retention — captions
+                that read clear even on mute.
+              </p>
+              <button type="button" class="ig-card__muted-hint">
+                Tap for sound 🔈
+              </button>
+            </div>
+          </article>
+
+          <article class="ig-card" data-index="3">
+            <header class="ig-card__top">
+              <div class="ig-card__avatar" aria-hidden="true">ag</div>
+              <span class="ig-card__username">audreyguinn</span>
+              <span class="ig-card__time">1w</span>
+              <button type="button" class="ig-card__more" aria-label="More options">
+                <span aria-hidden="true">⋯</span>
+              </button>
+            </header>
+            <div class="ig-card__media">
+              <video
+                src="social/copy_3C847BFE-D313-49CF-AB6B-2EB3AB6E4CDD.MOV"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
+              <button
+                type="button"
+                class="ig-card__sound"
+                aria-pressed="false"
+                aria-label="Muted — tap for sound"
+              >
+                <span aria-hidden="true">🔇</span>
+              </button>
+            </div>
+            <div class="ig-card__toolbar">
+              <div class="ig-card__toolbar-left">
+                <span class="ig-icon ig-icon--heart" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--comment" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--share" aria-hidden="true"></span>
+              </div>
+              <span class="ig-icon ig-icon--save" aria-hidden="true"></span>
+            </div>
+            <div class="ig-card__lower">
+              <p class="ig-card__likes">Saved by collaborators</p>
+              <p class="ig-card__caption">
+                <strong>audreyguinn</strong> Editorial mood — built for grids and
+                paid amplification.
+              </p>
+              <button type="button" class="ig-card__muted-hint">
+                Tap for sound 🔈
+              </button>
+            </div>
+          </article>
+
+          <article class="ig-card" data-index="4">
+            <header class="ig-card__top">
+              <div class="ig-card__avatar" aria-hidden="true">ag</div>
+              <span class="ig-card__username">audreyguinn</span>
+              <span class="ig-card__time">Just now</span>
+              <button type="button" class="ig-card__more" aria-label="More options">
+                <span aria-hidden="true">⋯</span>
+              </button>
+            </header>
+            <div class="ig-card__media">
+              <video
+                src="social/copy_B38CF4E1-5331-4E90-95EB-D5870F101415.MOV"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
+              <button
+                type="button"
+                class="ig-card__sound"
+                aria-pressed="false"
+                aria-label="Muted — tap for sound"
+              >
+                <span aria-hidden="true">🔇</span>
+              </button>
+            </div>
+            <div class="ig-card__toolbar">
+              <div class="ig-card__toolbar-left">
+                <span class="ig-icon ig-icon--heart" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--comment" aria-hidden="true"></span>
+                <span class="ig-icon ig-icon--share" aria-hidden="true"></span>
+              </div>
+              <span class="ig-icon ig-icon--save" aria-hidden="true"></span>
+            </div>
+            <div class="ig-card__lower">
+              <p class="ig-card__likes">New work</p>
+              <p class="ig-card__caption">
+                <strong>audreyguinn</strong> Always-on content that matches your
+                brand voice on day one.
+              </p>
+              <button type="button" class="ig-card__muted-hint">
+                Tap for sound 🔈
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="about-panel" aria-labelledby="about-heading">
+        <div class="about-panel__grid">
+          <div>
+            <h2 id="about-heading">What I do</h2>
+            <p>
+              Audrey partners with brands to plan calendars, capture social-first
+              video, tune hooks and pacing, and keep feeds cohesive from concept
+              to publish.
+            </p>
+          </div>
+          <ul class="about-panel__list">
+            <li>Strategy &amp; content calendars</li>
+            <li>Shoot direction &amp; on-set social capture</li>
+            <li>Reels-first editing &amp; platform-native formatting</li>
+            <li>Community voice &amp; brand guidelines</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer id="contact" class="site-footer">
+        <p class="footer__line">
+          <strong>New brand social?</strong>
+          Reach out on Instagram —
+          <a href="https://www.instagram.com/audreyguinn/">@audreyguinn</a>
+        </p>
+        <p class="footer__muted">Portfolio showcase · Audrey Guinn</p>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

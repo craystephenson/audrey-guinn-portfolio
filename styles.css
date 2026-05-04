@@ -1,0 +1,503 @@
+/* Audrey Guinn — portfolio (dark IG-adjacent theme to match monochrome logo) */
+:root {
+  --bg-deep: #0a0a0a;
+  --bg-elevated: #141414;
+  --bg-card: #101010;
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --text: #f5f5f5;
+  --muted: rgba(245, 245, 245, 0.55);
+  --accent: #e8e8e8;
+  --radius-lg: 16px;
+  --radius-sm: 10px;
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text);
+  background: radial-gradient(
+      ellipse 120% 80% at 50% -40%,
+      rgba(255, 255, 255, 0.06),
+      transparent 55%
+    ),
+    var(--bg-deep);
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0.75rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #111;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  left: 1rem;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.site-header__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.95rem clamp(1.25rem, 4vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.brand__mark {
+  display: block;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.brand__name {
+  font-family: "Outfit", "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.brand__role {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.site-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--text);
+}
+
+.hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2rem) 2rem;
+}
+
+.hero__content {
+  max-width: 560px;
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-family: "Outfit", "Inter", sans-serif;
+  font-size: clamp(1.95rem, 5vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.hero__lede {
+  margin: 0 0 1.35rem;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.feed-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem clamp(1.25rem, 4vw, 2rem) 3rem;
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-family: "Outfit", "Inter", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.section-head__hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+/* Instagram-ish post shell */
+.ig-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.ig-card__top {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.95rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.ig-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  place-items: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: rgba(245, 245, 245, 0.9);
+  background: linear-gradient(145deg, #2a2a2a, #111);
+}
+
+.ig-card__username {
+  font-family: "Outfit", "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
+}
+
+.ig-card__time {
+  font-size: 0.75rem;
+  color: var(--muted);
+  justify-self: end;
+}
+
+.ig-card__more {
+  width: 36px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.ig-card__more:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ig-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #080808;
+}
+
+.ig-card__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.ig-card__sound {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.ig-card__sound:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ig-card__reel-badge {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  color: #fff;
+  background: rgba(15, 15, 15, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.ig-card__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.95rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.ig-card__toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ig-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-icon--heart {
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 21s-7-4.5-10-10c-2-4 1-9 7-9 3 0 5 2 7 6 2-4 4-6 7-6 6 0 9 5 7 9-3 5.5-10 10-11 11z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 21s-7-4.5-10-10c-2-4 1-9 7-9 3 0 5 2 7 6 2-4 4-6 7-6 6 0 9 5 7 9-3 5.5-10 10-11 11z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  background: var(--text);
+}
+
+.ig-icon--comment {
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M4 18V6l2-3h14a2 2 0 012 2v10a2 2 0 01-2 2H9l-5 5z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  background: var(--text);
+}
+
+.ig-icon--share {
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M4 12v7a3 3 0 003 3h10a3 3 0 003-3v-7m-8 3 8-9-8-9v18'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  background: var(--text);
+}
+
+.ig-icon--save {
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M6 3h12v17l-6-5-6 5z'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  background: var(--text);
+}
+
+.ig-card__lower {
+  padding: 0.85rem 0.95rem 1rem;
+}
+
+.ig-card__likes {
+  margin: 0 0 0.45rem;
+  font-weight: 600;
+  font-size: 0.83rem;
+}
+
+.ig-card__caption {
+  margin: 0;
+  font-size: 0.86rem;
+  color: rgba(245, 245, 245, 0.9);
+}
+
+.ig-card__caption strong {
+  font-weight: 600;
+}
+
+.ig-card__muted-hint {
+  margin-top: 0.65rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: none;
+}
+
+.about-panel {
+  margin: 0 auto 2rem;
+  max-width: 1120px;
+  padding: 0 clamp(1.25rem, 4vw, 2rem) 3rem;
+}
+
+.about-panel__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 2.25rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-elevated);
+}
+
+.about-panel h2 {
+  margin: 0 0 0.75rem;
+  font-family: "Outfit", "Inter", sans-serif;
+  font-size: 1.25rem;
+}
+
+.about-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.about-panel__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.about-panel__list li::marker {
+  color: rgba(245, 245, 245, 0.35);
+}
+
+.site-footer {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 2rem clamp(1.25rem, 4vw, 2rem) 3rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.footer__line {
+  margin: 0 0 0.65rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.footer__line a {
+  color: var(--text);
+}
+
+.footer__line a:hover {
+  text-decoration: underline;
+}
+
+.footer__muted {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(245, 245, 245, 0.35);
+}
+
+@media (max-width: 720px) {
+  .about-panel__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .ig-card__muted-hint {
+    display: inline-flex;
+  }
+}
+
+.ig-card.is-unmuted .ig-card__sound {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(10, 10, 10, 0.78);
+}
+
+.ig-card.is-unmuted .ig-card__muted-hint {
+  display: inline-flex;
+  border-color: rgba(138, 200, 255, 0.35);
+  color: #bfe0ff;
+}

@@ -1,0 +1,6 @@
+.DS_Store
+*.bak
+.social-media-backup/
+
+# Original ~170 MB — kept locally; repo uses transcoded mp4 below GitHub size limit.
+social/copy_5215DA57-6942-4AC0-B835-B9904A2A4F7A.MOV
