@@ -1,6 +1,19 @@
 (function () {
   const cards = [...document.querySelectorAll(".ig-card")];
-  const links = Array.isArray(window.PORTFOLIO_VIMEO) ? window.PORTFOLIO_VIMEO : [];
+  /** Same order as embeds-config.js — used when that file fails to load (e.g. some file:// setups). */
+  const FALLBACK_VIMEO = [
+    "https://vimeo.com/1188936026",
+    "https://vimeo.com/1188935992",
+    "https://vimeo.com/1188936095",
+    "https://vimeo.com/1188936123",
+    "https://vimeo.com/1188936144",
+  ];
+
+  const custom = Array.isArray(window.PORTFOLIO_VIMEO) ? window.PORTFOLIO_VIMEO : [];
+  const links = cards.map((_, i) => {
+    const row = typeof custom[i] === "string" ? custom[i].trim() : "";
+    return row || (typeof FALLBACK_VIMEO[i] === "string" ? FALLBACK_VIMEO[i] : "");
+  });
 
   function parseVimeoUrl(raw) {
     const t = String(raw).trim();
