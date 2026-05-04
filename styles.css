@@ -11,8 +11,8 @@
   --radius-sm: 10px;
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.45);
   --carousel-gap: clamp(0.75rem, 2vw, 1.25rem);
-  /* Card width caps so two slides aren’t gigantic; height also capped via .ig-card__media */
-  --carousel-slide: min(320px, calc(100vw - 2.5rem));
+  /* Fallback slide width; when container queries apply, reel uses ~full carousel minus padding */
+  --carousel-slide: clamp(280px, calc(100vw - 3rem), 920px);
 }
 
 *,
@@ -334,10 +334,11 @@ a {
   outline-offset: 3px;
 }
 
+  /* One reel per viewport: slide nearly full carousel width — neighbours only peek slightly */
 .feed-carousel__track {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: flex-start;
   gap: var(--carousel-gap);
   padding: 0.2rem clamp(1.25rem, 4vw, 2rem) 1rem;
   width: max-content;
@@ -356,9 +357,8 @@ a {
   .feed-carousel__slide {
     flex-grow: 0;
     flex-shrink: 0;
-    /* ~one primary card visible; neighbours peek (~72% of carousel width max 320px) */
-    flex-basis: min(320px, 72cqi, calc(100vw - 2.5rem));
-    max-width: min(320px, 72cqi, calc(100vw - 2.5rem));
+    flex-basis: clamp(280px, calc(100cqi - 48px), 920px);
+    max-width: clamp(280px, calc(100cqi - 48px), 920px);
   }
 }
 
@@ -485,10 +485,11 @@ a {
 .ig-card__media {
   position: relative;
   isolation: isolate;
-  /* Portrait reel; bounded by viewport so the whole card fits without huge scroll */
   aspect-ratio: 9 / 16;
-  width: min(100%, calc(min(48svh, 380px) * 9 / 16));
-  max-height: min(48svh, 380px);
+  width: 100%;
+  max-width: 100%;
+  /* Cap height vs viewport; fills card width whenever the cap allows ~portrait sizing */
+  max-height: min(72svh, 640px);
   height: auto;
   margin-inline: auto;
   background: #000;
@@ -616,6 +617,8 @@ a {
   height: 30px;
   min-width: 30px;
   min-height: 30px;
+  aspect-ratio: 1;
+  align-self: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -624,9 +627,12 @@ a {
 
 .ig-icon svg {
   display: block;
+  flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  flex-shrink: 0;
+  max-width: 24px;
+  max-height: 24px;
+  overflow: visible;
 }
 
 .ig-card__lower {
