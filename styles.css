@@ -505,8 +505,6 @@ a {
   z-index: 2;
   display: grid;
   place-items: center;
-  display: grid;
-  place-items: center;
   text-align: center;
   padding: 1.35rem;
   font-size: 0.82rem;
@@ -514,6 +512,16 @@ a {
   color: var(--muted);
   background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05), transparent 62%),
     #080808;
+}
+
+/* author display:grid beats some [hidden] expectations; never stack over the iframe when dismissed */
+.ig-card__placeholder[hidden] {
+  display: none !important;
+}
+
+.ig-card__media--vimeo--has-video .ig-card__placeholder {
+  display: none !important;
+  pointer-events: none;
 }
 
 .ig-card__placeholder code {

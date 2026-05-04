@@ -75,6 +75,7 @@ function initVimeoEmbeds() {
   function wireCard(card, index) {
     const iframe = card.querySelector(".ig-card__iframe");
     const fallback = card.querySelector(".ig-card__placeholder");
+    const media = card.querySelector(".ig-card__media--vimeo");
     const raw =
       typeof links[index] === "string" ? links[index] : links[String(index)];
     const src = raw ? buildEmbedSrc(raw) : null;
@@ -82,8 +83,10 @@ function initVimeoEmbeds() {
     if (src && iframe) {
       iframe.src = src;
       iframe.removeAttribute("hidden");
+      media?.classList.add("ig-card__media--vimeo--has-video");
       if (fallback) fallback.hidden = true;
     } else {
+      media?.classList.remove("ig-card__media--vimeo--has-video");
       if (iframe) iframe.hidden = true;
       if (fallback) fallback.hidden = false;
     }
