@@ -8,7 +8,7 @@ function whenDocumentReady(fn) {
 
 /**
  * Wires Vimeo iframes for every reel. All embeds load paused (autoplay off).
- * Muted=1 lets visitors use Vimeo’s Unmute safely after they press play on a clip.
+ * muted=0 so sound plays when the visitor presses play (no autoplay).
  */
 function initVimeoEmbeds() {
   const cards = [...document.querySelectorAll(".ig-card")];
@@ -59,7 +59,7 @@ function initVimeoEmbeds() {
     if (!p) return null;
     const q = new URLSearchParams();
     if (p.h) q.set("h", p.h);
-    q.set("muted", "1");
+    q.set("muted", "0");
     q.set("autoplay", "0");
     q.set("loop", "1");
     q.set("title", "0");
