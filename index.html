@@ -92,7 +92,8 @@
           <h2 id="feed-heading">@parnassussociety</h2>
           <p class="section-head__hint">
             Videos load paused — press play on each reel for sound. Swipe or use arrows
-            to browse. Vimeo URLs live in <code>embeds-config.js</code>.
+            to browse. Vimeo URLs live in <code>embeds-config.js</code>; one slot uses an
+            Instagram embed player for the matching reel.
           </p>
         </div>
 
@@ -530,6 +531,75 @@
             </div>
           </article>
             </div>
+          <div class="feed-carousel__slide">
+            <article class="ig-card" data-index="5" data-embed="instagram">
+              <header class="ig-card__top">
+                <div class="ig-post-head">
+                  <div class="ig-post-head__avatar">
+                    <img
+                      src="parnassus-avatar.png"
+                      alt="The Parnassus Society"
+                      width="288"
+                      height="288"
+                      decoding="async"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="ig-post-head__meta">
+                    <p class="ig-post-head__user"><strong>parnassussociety</strong></p>
+                    <p class="ig-post-head__sub">Instagram reel</p>
+                  </div>
+                </div>
+                <button type="button" class="ig-card__more" aria-label="More options">
+                  <span aria-hidden="true">⋯</span>
+                </button>
+              </header>
+              <div class="ig-card__media ig-card__media--vimeo">
+                <div class="ig-card__embed-stage">
+                  <iframe
+                    class="ig-card__iframe ig-card__iframe--instagram"
+                    title="Instagram reel (@parnassussociety)"
+                    src="https://www.instagram.com/reel/DYGZ3pVMIBj/embed/?captioned=false"
+                    allow="encrypted-media; autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
+              </div>
+              <div class="ig-card__toolbar">
+                <div class="ig-card__toolbar-left">
+                  <span class="ig-icon" aria-hidden="true"
+                    ><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><use href="#ig-i-heart" /></svg></span
+                  >
+                  <span class="ig-icon" aria-hidden="true"
+                    ><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><use href="#ig-i-chat" /></svg></span
+                  >
+                  <span class="ig-icon" aria-hidden="true"
+                    ><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><use href="#ig-i-send" /></svg></span
+                  >
+                </div>
+                <span class="ig-icon" aria-hidden="true"
+                  ><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><use href="#ig-i-save" /></svg></span
+                >
+              </div>
+              <div class="ig-card__lower">
+                <p class="ig-card__likes">Instagram</p>
+                <p class="ig-card__caption">
+                  <strong>parnassussociety</strong>
+                  Embedded reel —
+                  <a
+                    href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Open on Instagram</a
+                  >.
+                </p>
+                <p class="ig-card__comments-tease">Watch and interact in the player above</p>
+              </div>
+            </article>
+          </div>
             </div>
           </div>
         </div>

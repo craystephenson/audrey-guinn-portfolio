@@ -652,6 +652,11 @@ a {
   }
 }
 
+/* Instagram’s embed isn’t letterboxed like Vimeo portrait uploads — fill frame without zoom crop */
+.ig-card__embed-stage .ig-card__iframe--instagram {
+  transform: translate(-50%, -50%);
+}
+
 .ig-card__placeholder {
   margin: 0;
   position: absolute;

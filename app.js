@@ -12,7 +12,7 @@ function whenDocumentReady(fn) {
  */
 function initVimeoEmbeds() {
   const cards = [...document.querySelectorAll(".ig-card")];
-  /** Same order as embeds-config.js — used when that file fails to load (e.g. some file:// setups). */
+  /** Same order as embeds-config.js — used when that file fails to load (e.g. some file:// setups). First five carousel slots only; Instagram slot is omitted. */
   const FALLBACK_VIMEO = [
     "https://vimeo.com/1188936026",
     "https://vimeo.com/1188935992",
@@ -78,6 +78,9 @@ function initVimeoEmbeds() {
   }
 
   cards.forEach((card, i) => {
+    /* Native Instagram embed iframes ship their own src in markup — skip Vimeo wiring. */
+    if (card.dataset.embed === "instagram") return;
+
     const iframe = card.querySelector(".ig-card__iframe");
     const fallback = card.querySelector(".ig-card__placeholder");
     const media = card.querySelector(".ig-card__media--vimeo");

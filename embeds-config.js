@@ -1,6 +1,8 @@
 /**
  * Vimeo URLs for each reel card (top → bottom).
- * Matches the five posts on index.html. Query strings (?share=…) are fine.
+ * Matches the first five posts on index.html (carousel slots 0–4).
+ * Slot 5 is embedded directly from Instagram — see index.html (`data-embed="instagram"`).
+ * Query strings (?share=…) are fine for Vimeo links.
  *
  * Alternate for slot 1 (same reel, different upload): https://vimeo.com/1188936183
  */
