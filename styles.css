@@ -652,28 +652,28 @@ a {
   }
 }
 
-/* Instagram official embed (blockquote + embed.js): tall layout scrolls inside the 9×16 shell */
-.ig-card__embed-stage--instagram {
+/* Iframely embed for Instagram reel — fills card width; scrolls if taller than 9×16 shell */
+.ig-card__embed-stage--iframely {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0.35rem 0.25rem 0.6rem;
-  display: block;
+  justify-content: center;
+  padding: 0.35rem 0.35rem 0.55rem;
 }
 
-.ig-card__embed-stage--instagram .instagram-media {
-  margin: 0 auto !important;
+.ig-card__embed-stage--iframely .iframely-embed {
+  width: 100%;
+  max-width: 100%;
+}
+
+.ig-card__embed-stage--iframely .iframely-responsive {
   width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
+  max-width: 100%;
 }
 
-.ig-card__embed-stage--instagram .instagram-media iframe {
-  margin: 0 auto !important;
+.ig-card__embed-stage--iframely .iframely-responsive iframe {
   max-width: 100% !important;
 }
 

@@ -223,29 +223,7 @@ function initFeedCarousel() {
   });
 }
 
-/** Instagram serves embed.js async; process static blockquotes once it’s ready (and once on load). */
-function initInstagramEmbeds() {
-  function process() {
-    if (window.instgrm?.Embeds?.process) {
-      window.instgrm.Embeds.process();
-    }
-  }
-
-  process();
-  window.addEventListener("load", process);
-
-  let tries = 0;
-  const timer = window.setInterval(() => {
-    process();
-    tries += 1;
-    if (window.instgrm?.Embeds || tries > 50) {
-      window.clearInterval(timer);
-    }
-  }, 120);
-}
-
 whenDocumentReady(() => {
   initVimeoEmbeds();
   initFeedCarousel();
-  initInstagramEmbeds();
 });

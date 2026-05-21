@@ -92,8 +92,8 @@
           <h2 id="feed-heading">@parnassussociety</h2>
           <p class="section-head__hint">
             Videos load paused — press play on each reel for sound. Swipe or use arrows
-            to browse. Vimeo URLs live in <code>embeds-config.js</code>; one slot uses
-            Instagram’s official embed (<code>embed.js</code> + embed markup from the post).
+            to browse. Vimeo URLs live in <code>embeds-config.js</code>; one slot uses an
+            <a href="https://iframely.com/" target="_blank" rel="noopener noreferrer">Iframely</a> embed for the Instagram reel.
           </p>
         </div>
 
@@ -555,19 +555,16 @@
                 </button>
               </header>
               <div class="ig-card__media ig-card__media--vimeo">
-                <div class="ig-card__embed-stage ig-card__embed-stage--instagram">
-                  <blockquote
-                    class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/reel/DYGZ3pVMIBj/"
-                    data-instgrm-version="14"
-                  >
-                    <a
-                      href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >View this reel on Instagram</a
-                    >
-                  </blockquote>
+                <div class="ig-card__embed-stage ig-card__embed-stage--iframely">
+                  <div class="iframely-embed">
+                    <div class="iframely-responsive" style="height: 170px; padding-bottom: 0;">
+                      <a
+                        href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
+                        data-iframely-url="https://iframely.net/n1Zhtio4?theme=dark"
+                        aria-label="Instagram reel (Iframely embed)"
+                      ></a>
+                    </div>
+                  </div>
                 </div>
                 <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
               </div>
@@ -591,8 +588,7 @@
                 <p class="ig-card__likes">Instagram</p>
                 <p class="ig-card__caption">
                   <strong>parnassussociety</strong>
-                  Embedded with Instagram’s tools (⋯ → Embed). If it doesn’t load in your
-                  browser,
+                  Preview via Iframely. If it doesn’t load,
                   <a
                     href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
                     target="_blank"
@@ -641,6 +637,6 @@
 
     <script src="embeds-config.js" defer data-cfasync="false"></script>
     <script src="app.js" defer data-cfasync="false"></script>
-    <script async src="https://www.instagram.com/embed.js"></script>
+    <script async src="https://iframely.net/embed.js"></script>
   </body>
 </html>
