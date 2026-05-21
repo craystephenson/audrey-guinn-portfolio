@@ -92,8 +92,8 @@
           <h2 id="feed-heading">@parnassussociety</h2>
           <p class="section-head__hint">
             Videos load paused — press play on each reel for sound. Swipe or use arrows
-            to browse. Vimeo URLs live in <code>embeds-config.js</code>; one slot uses an
-            Instagram embed player for the matching reel.
+            to browse. Vimeo URLs live in <code>embeds-config.js</code>; one slot opens an
+            Instagram reel in-app / on instagram.com (embedded IG players break often).
           </p>
         </div>
 
@@ -532,7 +532,7 @@
           </article>
             </div>
           <div class="feed-carousel__slide">
-            <article class="ig-card" data-index="5" data-embed="instagram">
+            <article class="ig-card" data-index="5">
               <header class="ig-card__top">
                 <div class="ig-post-head">
                   <div class="ig-post-head__avatar">
@@ -556,15 +556,22 @@
               </header>
               <div class="ig-card__media ig-card__media--vimeo">
                 <div class="ig-card__embed-stage">
-                  <iframe
-                    class="ig-card__iframe ig-card__iframe--instagram"
-                    title="Instagram reel (@parnassussociety)"
-                    src="https://www.instagram.com/reel/DYGZ3pVMIBj/embed/?captioned=false"
-                    allow="encrypted-media; autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                  ></iframe>
+                  <a
+                    class="ig-card__instagram-open"
+                    href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Watch this reel on Instagram (opens in new tab)"
+                  >
+                    <span class="ig-card__instagram-open__icon" aria-hidden="true">
+                      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="28" cy="28" r="26" stroke="currentColor" stroke-width="2.5" opacity="0.85" />
+                        <path d="M23 18v20l16-10-16-10z" fill="currentColor" />
+                      </svg>
+                    </span>
+                    <span class="ig-card__instagram-open__title">Watch reel</span>
+                    <span class="ig-card__instagram-open__hint">Instagram blocks many site embeds — we link out instead.</span>
+                  </a>
                 </div>
                 <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
               </div>
@@ -588,15 +595,16 @@
                 <p class="ig-card__likes">Instagram</p>
                 <p class="ig-card__caption">
                   <strong>parnassussociety</strong>
-                  Embedded reel —
+                  Same reel —
                   <a
                     href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Open on Instagram</a
-                  >.
+                    >open on Instagram</a
+                  >
+                  or tap the preview above.
                 </p>
-                <p class="ig-card__comments-tease">Watch and interact in the player above</p>
+                <p class="ig-card__comments-tease">Hosted on Instagram</p>
               </div>
             </article>
           </div>

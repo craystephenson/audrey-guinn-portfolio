@@ -78,9 +78,6 @@ function initVimeoEmbeds() {
   }
 
   cards.forEach((card, i) => {
-    /* Native Instagram embed iframes ship their own src in markup — skip Vimeo wiring. */
-    if (card.dataset.embed === "instagram") return;
-
     const iframe = card.querySelector(".ig-card__iframe");
     const fallback = card.querySelector(".ig-card__placeholder");
     const media = card.querySelector(".ig-card__media--vimeo");
