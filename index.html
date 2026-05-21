@@ -92,8 +92,8 @@
           <h2 id="feed-heading">@parnassussociety</h2>
           <p class="section-head__hint">
             Videos load paused — press play on each reel for sound. Swipe or use arrows
-            to browse. Vimeo URLs live in <code>embeds-config.js</code>; one slot opens an
-            Instagram reel in-app / on instagram.com (embedded IG players break often).
+            to browse. Vimeo URLs live in <code>embeds-config.js</code>; one slot uses
+            Instagram’s official embed (<code>embed.js</code> + embed markup from the post).
           </p>
         </div>
 
@@ -555,23 +555,19 @@
                 </button>
               </header>
               <div class="ig-card__media ig-card__media--vimeo">
-                <div class="ig-card__embed-stage">
-                  <a
-                    class="ig-card__instagram-open"
-                    href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Watch this reel on Instagram (opens in new tab)"
+                <div class="ig-card__embed-stage ig-card__embed-stage--instagram">
+                  <blockquote
+                    class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DYGZ3pVMIBj/"
+                    data-instgrm-version="14"
                   >
-                    <span class="ig-card__instagram-open__icon" aria-hidden="true">
-                      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="28" cy="28" r="26" stroke="currentColor" stroke-width="2.5" opacity="0.85" />
-                        <path d="M23 18v20l16-10-16-10z" fill="currentColor" />
-                      </svg>
-                    </span>
-                    <span class="ig-card__instagram-open__title">Watch reel</span>
-                    <span class="ig-card__instagram-open__hint">Instagram blocks many site embeds — we link out instead.</span>
-                  </a>
+                    <a
+                      href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >View this reel on Instagram</a
+                    >
+                  </blockquote>
                 </div>
                 <span class="ig-card__reel-badge" aria-hidden="true">Reels</span>
               </div>
@@ -595,14 +591,14 @@
                 <p class="ig-card__likes">Instagram</p>
                 <p class="ig-card__caption">
                   <strong>parnassussociety</strong>
-                  Same reel —
+                  Embedded with Instagram’s tools (⋯ → Embed). If it doesn’t load in your
+                  browser,
                   <a
                     href="https://www.instagram.com/reel/DYGZ3pVMIBj/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >open on Instagram</a
-                  >
-                  or tap the preview above.
+                    >open the reel</a
+                  >.
                 </p>
                 <p class="ig-card__comments-tease">Hosted on Instagram</p>
               </div>
@@ -645,5 +641,6 @@
 
     <script src="embeds-config.js" defer data-cfasync="false"></script>
     <script src="app.js" defer data-cfasync="false"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
   </body>
 </html>
