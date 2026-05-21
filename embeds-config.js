@@ -1,6 +1,6 @@
 /**
- * Vimeo URLs for each ig-card reel (carousel order: after the Instagram embed slide).
- * Five entries = five .ig-card articles. The first carousel slide is Instagram-only HTML.
+ * Vimeo URLs for each ig-card reel in carousel order (after the two Instagram embed slides).
+ * Five entries = five .ig-card articles. The first two carousel slides are Instagram-only HTML.
  * Query strings (?share=…) are fine for Vimeo links.
  *
  * Alternate for ig-card slot that was formerly “slot 1” (same reel, different upload): https://vimeo.com/1188936183
