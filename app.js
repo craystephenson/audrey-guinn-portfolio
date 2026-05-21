@@ -12,7 +12,7 @@ function whenDocumentReady(fn) {
  */
 function initVimeoEmbeds() {
   const cards = [...document.querySelectorAll(".ig-card")];
-  /** Same order as embeds-config.js — used when that file fails to load (e.g. some file:// setups). First five carousel slots only; Instagram slot is omitted. */
+  /** Same order as embeds-config.js — five .ig-card reels only (Instagram slide is not an ig-card). */
   const FALLBACK_VIMEO = [
     "https://vimeo.com/1188936026",
     "https://vimeo.com/1188935992",

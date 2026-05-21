@@ -1,10 +1,9 @@
 /**
- * Vimeo URLs for each reel card (top → bottom).
- * Matches the first five posts on index.html (carousel slots 0–4).
- * Slot 5 uses Instagram embed markup + instagram.com/embed.js — see index.html.
+ * Vimeo URLs for each ig-card reel (carousel order: after the Instagram embed slide).
+ * Five entries = five .ig-card articles. The first carousel slide is Instagram-only HTML.
  * Query strings (?share=…) are fine for Vimeo links.
  *
- * Alternate for slot 1 (same reel, different upload): https://vimeo.com/1188936183
+ * Alternate for ig-card slot that was formerly “slot 1” (same reel, different upload): https://vimeo.com/1188936183
  */
 window.PORTFOLIO_VIMEO = [
   "https://vimeo.com/1188936026", // reel 5215 · skincare hero
