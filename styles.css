@@ -674,10 +674,14 @@ a {
 
 .native-embed .instagram-media {
   margin: 0 auto !important;
-  min-width: 0 !important;
-  max-width: min(540px, 100%) !important;
+  box-sizing: border-box;
+  /* Match Instagram’s embed “card” width (same as official copy-paste snippet) */
+  max-width: 540px !important;
+  min-width: min(326px, 100%) !important;
+  width: calc(100% - 2px) !important;
 }
 
+/* Once instagram.com/embed.js injects the iframe, keep it from shrinking oddly */
 .native-embed .instagram-media iframe {
   margin: 0 auto !important;
   max-width: 100% !important;
