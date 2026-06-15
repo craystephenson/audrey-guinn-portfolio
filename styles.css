@@ -189,6 +189,90 @@ a {
   padding: 1rem clamp(1.25rem, 4vw, 2rem) 3rem;
 }
 
+.music-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.5rem clamp(1.25rem, 4vw, 2rem) 3rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.music-section__head {
+  align-items: flex-end;
+}
+
+.music-section__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.music-section__subhead {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(245, 245, 245, 0.72);
+  max-width: 28rem;
+}
+
+.music-panel {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.music-embed {
+  width: 100%;
+  max-width: min(520px, 100%);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  background: #0c0c0c;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.music-embed iframe {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: 0;
+  background: #0c0c0c;
+}
+
+.music-embed__credit {
+  margin: 0;
+  padding: 0.45rem 0.65rem 0.55rem;
+  font-size: 10px;
+  font-weight: 100;
+  font-family: Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans",
+    Garuda, Verdana, Tahoma, sans-serif;
+  color: #ccc;
+  line-height: 1.35;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: #0c0c0c;
+  border-top: 1px solid var(--border-soft);
+}
+
+.music-embed__credit a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.music-embed__credit a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.section-head__hint a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section-head__hint a:hover {
+  color: #fff;
+}
+
 .section-head {
   display: flex;
   flex-wrap: wrap;

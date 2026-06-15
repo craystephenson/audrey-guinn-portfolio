@@ -65,6 +65,7 @@
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#feed">Feed</a>
+          <a href="#music">Music</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -91,10 +92,9 @@
         <div class="section-head">
           <h2 id="feed-heading">@parnassussociety</h2>
           <p class="section-head__hint">
-            First two slides are Instagram embeds (⋯ → Embed on each post). Remaining slides are
-            Vimeo reels — URLs in <code>embeds-config.js</code>. Press play for sound; swipe or
-            arrows to browse. Instagram may show limited engagement in the embed; open the post for
-            full likes and comments.
+            First slide is an Instagram embed (⋯ → Embed on the post). Remaining slides are Vimeo
+            reels — URLs in <code>embeds-config.js</code>. Press play for sound; swipe or arrows to
+            browse.
           </p>
         </div>
 
@@ -130,7 +130,7 @@
             id="social-carousel-scroll"
             tabindex="0"
             role="region"
-            aria-label="Reel carousel: two Instagram embeds first, then Vimeo reels. Swipe or use arrows."
+            aria-label="Reel carousel: Instagram embed first, then Vimeo reels. Swipe or use arrows."
           >
             <div class="feed-carousel__track">
           <div class="feed-carousel__slide feed-carousel__slide--native-embed">
@@ -387,6 +387,7 @@
             </div>
           </div>
 
+          <!-- Christmas reel (DRvRt-_kkh9) — hidden for now
           <div class="feed-carousel__slide feed-carousel__slide--native-embed">
             <div class="native-embed">
               <blockquote
@@ -419,6 +420,7 @@
               </blockquote>
             </div>
           </div>
+          -->
 
               <div class="feed-carousel__slide">
                 <article class="ig-card" data-index="0">
@@ -823,6 +825,54 @@
           </div>
         </div>
 
+      </section>
+
+      <section id="music" class="music-section" aria-labelledby="music-heading">
+        <div class="section-head music-section__head">
+          <div class="music-section__intro">
+            <h2 id="music-heading">Music</h2>
+            <p class="music-section__subhead">I also write, sing and produce music I often use for content.</p>
+          </div>
+          <p class="section-head__hint">
+            <a
+              href="https://soundcloud.com/user-148993876/sets/audrey-guinn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open playlist on SoundCloud</a
+            >
+          </p>
+        </div>
+        <div class="music-panel">
+          <div class="music-embed">
+            <iframe
+              title="Audrey Guinn — SoundCloud playlist"
+              width="100%"
+              height="300"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay; encrypted-media"
+              loading="lazy"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2253100859&amp;color=%23000000&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
+            ></iframe>
+            <p class="music-embed__credit">
+              <a
+                href="https://soundcloud.com/user-148993876"
+                title="Audrey Guinn"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Audrey Guinn</a
+              >
+              ·
+              <a
+                href="https://soundcloud.com/user-148993876/sets/audrey-guinn"
+                title="Audrey Guinn"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Audrey Guinn</a
+              >
+            </p>
+          </div>
+        </div>
       </section>
 
       <section id="about" class="about-panel" aria-labelledby="about-heading">
