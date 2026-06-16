@@ -13,6 +13,11 @@ window.PORTFOLIO_STREAM_VIDEOS = [
       "https://customer-v4d9cghueyt0skvm.cloudflarestream.com/6f82f7aea88ed585487b639b059e626a/watch",
   },
   {
+    title: "Rosalia (Live)",
+    watchUrl:
+      "https://customer-v4d9cghueyt0skvm.cloudflarestream.com/82f763e624ad0b86ff83bdbb42097bf0/watch",
+  },
+  {
     title: "Star Spangled Banner | OCSA Graduation",
     watchUrl:
       "https://customer-v4d9cghueyt0skvm.cloudflarestream.com/8b00a4132c5808222974390cb182b1a9/watch",
